@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(226, 253, 230);
+}
+
+* {
+  font-family: 'Inter', system-ui;
+}
+
+.wrapper {
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba($color: #000000, $alpha: 0.04);
+  border-radius: 20px;
+  max-width: 1080px;
+  margin: 50px auto;
+}
+
+.content {
+  h1 {
+    margin: 0;
+  }
+}
+
+.card-place {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #cecece;
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+
+  &:hover {
+    transition: transform 0.15s ease-in-out;
+    opacity: 1.5;
+  }
+}
+
+.search-block {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #cccccc;
+  padding: 10px 15px;
+  border-radius: 10px;
+  width: 260px;
+
+  transition: transform 0.15s ease-in-out;
+
+  input {
+    border: none;
+  }
+
+  img {
+    // margin-right: 5px;
+  }
+  .deleteBtn {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    cursor: pointer;
+
+    &:hover {
+      transition: transform 0.15s ease-in-out;
+      opacity: 1;
+    }
+  }
+}
