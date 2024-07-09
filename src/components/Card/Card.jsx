@@ -3,11 +3,10 @@ import styles from './Card.module.scss'
 import { AppContext } from '../../App'
 import Loader from './Loader'
 
-function Card(item) {
+function Card({ id, title, price, imageUrl }) {
   const [favorite, setFavorite] = useState(false)
   const [isAdded, setIsAdded] = useState(false)
 
-  const { id, title, price, imageUrl } = item
   const { setCartItems, cartItems, favorites, setFavorites, isLoading } = useContext(AppContext)
 
   useEffect(() => {
@@ -26,29 +25,21 @@ function Card(item) {
     }
   }, [favorites, id])
 
-  // const onClickPlus = () => {
-  //   const updatedCart = [...cartItems, { id, imageUrl, title, price }]
-  //   setCartItems(updatedCart)
-  //   localStorage.setItem('cartItems', JSON.stringify(updatedCart))
-  //   setIsAdded(!isAdded)
-  // }
-
   const onClickPlus = () => {
     const filteredCartSneakers = cartItems.some((sneaker) => sneaker.id === id)
       ? cartItems.filter((sneaker) => sneaker.id !== id)
-      : setCartItems([...cartItems, { id, title, price, imageUrl }])
+      : [...cartItems, { id, title, price, imageUrl }]
 
     setCartItems(filteredCartSneakers)
     localStorage.setItem('cartItems', JSON.stringify(filteredCartSneakers))
   }
 
   const onClickFavorite = () => {
-    const favItems = [...favorites, { id, title, price, imageUrl }]
-    setFavorites(favItems)
-
-    favorites.filter((favoriteItem) => favoriteItem.id !== id)
-
-    localStorage.setItem('favoritesItems', JSON.stringify(favItems))
+    const filteredFavSneakers = favorites.some((sneaker) => sneaker.id === id)
+      ? favorites.filter((sneaker) => sneaker.id !== id)
+      : [...favorites, { id, title, price, imageUrl }]
+    setFavorites(filteredFavSneakers)
+    localStorage.setItem('favoritesItems', JSON.stringify(filteredFavSneakers))
   }
 
   return (

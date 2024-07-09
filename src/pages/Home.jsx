@@ -32,7 +32,7 @@ function Home() {
       </div>
 
       <div className='card-place'>
-        {(isLoading ? [...Array(12)] : filteredItems).map((item) => (
+        {(isLoading ? [...Array(12).keys()] : filteredItems).map((item) => (
           <Card {...item} key={item?.id} />
         ))}
       </div>
