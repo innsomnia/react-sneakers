@@ -37,13 +37,7 @@ function Favorites() {
 
           <div className='card-place'>
             {filteredItems.map((item) => (
-              <Card
-                id={item?.id}
-                key={item?.id}
-                imageUrl={item?.imageUrl}
-                title={item?.title}
-                price={item?.price}
-              />
+              <Card key={item?.id} {...item} />
             ))}
           </div>
         </>
