@@ -3,7 +3,7 @@ import styles from './Card.module.scss'
 import { AppContext } from '../../App'
 import Loader from './Loader'
 
-function Card({ id, title, price, imageUrl }) {
+export const Card = ({ id, title, price, imageUrl }) => {
   const [favorite, setFavorite] = useState(false)
   const [isAdded, setIsAdded] = useState(false)
 
@@ -77,5 +77,3 @@ function Card({ id, title, price, imageUrl }) {
     </>
   )
 }
-
-export default Card

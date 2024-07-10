@@ -1,10 +1,10 @@
 import { useContext } from 'react'
-import CartItem from '../CartItem/CartItem'
-import CartEmpty from './CartEmpty.jsx'
+import { CartItem } from '../CartItem/CartItem'
+import { CartEmpty } from './CartEmpty.jsx'
 import styles from './SlideCart.module.scss'
 import { AppContext } from '../../App.jsx'
 
-function SlideCart({ closeCart }) {
+export const SlideCart = ({ closeCart }) => {
   const { cartItems } = useContext(AppContext)
 
   return (
@@ -18,13 +18,7 @@ function SlideCart({ closeCart }) {
           <>
             <div className={styles.spaceOverflow}>
               {cartItems.map((item) => (
-                <CartItem
-                  item={item}
-                  key={item.id}
-                  title={item.title}
-                  price={item.price}
-                  imageUrl={item.imageUrl}
-                />
+                <CartItem key={item.id} {...item} />
               ))}
             </div>
 
@@ -54,5 +48,3 @@ function SlideCart({ closeCart }) {
     </div>
   )
 }
-
-export default SlideCart

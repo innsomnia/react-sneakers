@@ -1,6 +1,6 @@
 import styles from './CartEmpty.module.scss'
 
-function CartEmpty({ closeCart }) {
+export const CartEmpty = ({ closeCart }) => {
   return (
     <div className={styles.emptyBlockCart}>
       <img src='/img/box.svg' alt='' />
@@ -13,5 +13,3 @@ function CartEmpty({ closeCart }) {
     </div>
   )
 }
-
-export default CartEmpty

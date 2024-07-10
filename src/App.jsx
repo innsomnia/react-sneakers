@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { createContext, useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Header from './components/Header/Header'
-import SlideCart from './components/SlideCart/SlideCart'
+import { Header } from './components/Header/Header'
+import { SlideCart } from './components/SlideCart/SlideCart'
 import './index.scss'
-import Home from './pages/Home'
-import Favorites from './pages/Favorites'
+import { Home } from './pages/Home'
+import { Favorites } from './pages/Favorites'
 
 export const AppContext = createContext({})
 

@@ -2,8 +2,7 @@ import { useContext } from 'react'
 import styles from './CartItem.module.scss'
 import { AppContext } from '../../App'
 
-function CartItem({ item }) {
-  const { title, imageUrl, price } = item
+export const CartItem = ({ id, title, imageUrl, price }) => {
   const { deleteItemCart } = useContext(AppContext)
 
   return (
@@ -15,7 +14,7 @@ function CartItem({ item }) {
       </div>
 
       <img
-        onClick={() => deleteItemCart(item.id)}
+        onClick={() => deleteItemCart(id)}
         className={styles.deleteBtn}
         src='/img/delete-btn.svg'
         alt=''
@@ -23,5 +22,3 @@ function CartItem({ item }) {
     </div>
   )
 }
-
-export default CartItem

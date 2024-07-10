@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import Card from '../components/Card/Card'
+import { Card } from '../components/Card/Card'
 import { AppContext } from '../App'
 
-function Home() {
+export const Home = () => {
   const { searchValue, setSearchValue, items, isLoading } = useContext(AppContext)
 
   const filteredItems = items.filter((item) =>
@@ -39,5 +39,3 @@ function Home() {
     </div>
   )
 }
-
-export default Home

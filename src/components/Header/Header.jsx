@@ -1,7 +1,7 @@
 import styles from './Header.module.scss'
 import { Link } from 'react-router-dom'
 
-function Header(props) {
+export const Header = (props) => {
   return (
     <header className={styles.headerMain}>
       <Link to='/'>
@@ -33,5 +33,3 @@ function Header(props) {
     </header>
   )
 }
-
-export default Header

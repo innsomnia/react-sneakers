@@ -1,10 +1,10 @@
 import { useContext } from 'react'
-import Card from '../components/Card/Card'
+import { Card } from '../components/Card/Card'
 import styles from './Favorites.module.scss'
 import { Link } from 'react-router-dom'
 import { AppContext } from '../App'
 
-function Favorites() {
+export const Favorites = () => {
   const { favorites, searchValue, setSearchValue } = useContext(AppContext)
 
   const filteredItems = favorites.filter((item) =>
@@ -57,5 +57,3 @@ function Favorites() {
     </div>
   )
 }
-
-export default Favorites
