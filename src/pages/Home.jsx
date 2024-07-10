@@ -32,8 +32,8 @@ export const Home = () => {
       </div>
 
       <div className='card-place'>
-        {(isLoading ? [...Array(12).keys()] : filteredItems).map((item) => (
-          <Card {...item} key={item?.id} />
+        {(isLoading ? [...Array(12)] : filteredItems).map((item, index) => (
+          <Card {...item} key={item ? item.id : index} />
         ))}
       </div>
     </div>

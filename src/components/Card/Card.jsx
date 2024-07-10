@@ -38,6 +38,7 @@ export const Card = ({ id, title, price, imageUrl }) => {
     const filteredFavSneakers = favorites.some((sneaker) => sneaker.id === id)
       ? favorites.filter((sneaker) => sneaker.id !== id)
       : [...favorites, { id, title, price, imageUrl }]
+
     setFavorites(filteredFavSneakers)
     localStorage.setItem('favoritesItems', JSON.stringify(filteredFavSneakers))
   }
