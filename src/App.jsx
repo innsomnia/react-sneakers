@@ -16,6 +16,9 @@ function App() {
   const [openSlide, setOpenSlide] = useState(false)
   const [searchValue, setSearchValue] = useState('')
   const [isLoading, setIsLoading] = useState(true)
+  const [isOrder, setIsOrder] = useState(false)
+
+  const sumCart = cartItems.reduce((acc, item) => acc + item.price, 0)
 
   useEffect(() => {
     setIsLoading(true)
@@ -28,6 +31,7 @@ function App() {
       setCartItems(localItems)
 
       const localFavorites = JSON.parse(localStorage.getItem('favoritesItems') || '[]')
+
       setFavorites(localFavorites)
     }
 
@@ -57,11 +61,14 @@ function App() {
         deleteItemCart,
         isLoading,
         setIsLoading,
+        isOrder,
+        setIsOrder,
+        sumCart,
       }}>
       <div className='wrapper clear'>
-        {openSlide ? <SlideCart closeCart={() => setOpenSlide(false)} /> : null}
+        {openSlide ? <SlideCart /> : null}
 
-        <Header openCart={() => setOpenSlide(true)} />
+        <Header />
 
         <Routes>
           <Route path='/' element={<Home />} />

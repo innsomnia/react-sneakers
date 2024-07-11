@@ -1,12 +1,20 @@
+import { useContext } from 'react'
 import styles from './CartEmpty.module.scss'
+import { AppContext } from '../../App'
 
-export const CartEmpty = ({ closeCart }) => {
+export const CartEmpty = ({ image, title, description }) => {
+  const { setIsOrder, setOpenSlide } = useContext(AppContext)
   return (
     <div className={styles.emptyBlockCart}>
-      <img src='/img/box.svg' alt='' />
-      <h2>Корзина пустая</h2>
-      <span>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</span>
-      <button onClick={closeCart} className={styles.backBtn}>
+      <img src={image} alt='' />
+      <h2>{title}</h2>
+      <span>{description}</span>
+      <button
+        onClick={() => {
+          setIsOrder(false)
+          setOpenSlide(false)
+        }}
+        className={styles.backBtn}>
         <img src='/img/ArrowReverse.svg' alt='' />
         Вернуться
       </button>

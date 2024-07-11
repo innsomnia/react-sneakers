@@ -1,7 +1,11 @@
+import { useContext } from 'react'
 import styles from './Header.module.scss'
 import { Link } from 'react-router-dom'
+import { AppContext } from './../../App'
 
-export const Header = (props) => {
+export const Header = () => {
+  const { setOpenSlide, sumCart } = useContext(AppContext)
+
   return (
     <header className={styles.headerMain}>
       <Link to='/'>
@@ -14,9 +18,9 @@ export const Header = (props) => {
         </div>
       </Link>
       <ul className={styles.headerRight}>
-        <li className={styles.liCart} onClick={props.openCart}>
+        <li className={styles.liCart} onClick={() => setOpenSlide(true)}>
           <img src='/img/cart.svg' alt='' />
-          <span>1205 руб.</span>
+          <span>{sumCart} руб.</span>
         </li>
         <Link to='/favorites'>
           <li>

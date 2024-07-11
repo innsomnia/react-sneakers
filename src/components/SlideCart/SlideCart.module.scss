@@ -10,7 +10,6 @@
 
 .slideCart {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   position: fixed;
   flex-direction: column;
@@ -115,7 +114,6 @@
 }
 
 .slideBottom {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 16px;
+  margin-top: auto;
 }
