@@ -8,7 +8,7 @@ export const SlideCart = () => {
   const { cartItems, setCartItems, isOrder, setIsOrder, setOpenSlide, sumCart } =
     useContext(AppContext)
 
-  const tax = sumCart * 0.13
+  const tax = (sumCart * 0.13).toFixed(2)
 
   const btnOrderComplete = () => {
     setIsOrder(true)
