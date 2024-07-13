@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useEffect, useMemo, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Header } from './components/Header/Header'
 import { SlideCart } from './components/SlideCart/SlideCart'
@@ -18,7 +18,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [isOrder, setIsOrder] = useState(false)
 
-  const sumCart = cartItems.reduce((acc, item) => acc + item.price, 0)
+  // const sumCart = cartItems.reduce((acc, item) => acc + item.price, 0)
+
+  const sumCart = useMemo(() => {
+    return cartItems.reduce((acc, item) => acc + item.price, 0)
+  }, [cartItems])
 
   useEffect(() => {
     setIsLoading(true)
@@ -66,7 +70,7 @@ function App() {
         sumCart,
       }}>
       <div className='wrapper clear'>
-        {openSlide ? <SlideCart /> : null}
+        {openSlide && <SlideCart />}
 
         <Header />
 

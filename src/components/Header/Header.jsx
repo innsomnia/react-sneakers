@@ -18,7 +18,7 @@ export const Header = () => {
         </div>
       </Link>
       <ul className={styles.headerRight}>
-        <li className={styles.liCart} onClick={() => setOpenSlide(true)}>
+        <li className={styles.cartBtn} onClick={() => setOpenSlide(true)}>
           <img src='/img/cart.svg' alt='' />
           <span>{sumCart} руб.</span>
         </li>

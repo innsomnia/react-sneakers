@@ -10,7 +10,7 @@ export const SlideCart = () => {
 
   const tax = (sumCart * 0.13).toFixed(2)
 
-  const btnOrderComplete = () => {
+  const onOrderComplete = () => {
     setIsOrder(true)
     setCartItems([])
     localStorage.removeItem('cartItems')
@@ -44,12 +44,12 @@ export const SlideCart = () => {
               </div>
 
               <div className={styles.cartResult}>
-                <p>Налог 13%:</p>
+                <p>Налог 7%:</p>
                 <div className={styles.line} />
                 <b>{tax} руб.</b>
               </div>
 
-              <button onClick={btnOrderComplete} className={styles.orderBtn}>
+              <button onClick={onOrderComplete} className={styles.orderBtn}>
                 Оформить заказ
                 <img src='/img/Arrow.svg' alt='' />
               </button>
